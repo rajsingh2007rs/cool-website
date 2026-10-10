@@ -1,0 +1,345 @@
+CSS--> Cascading style sheet
+It is a language used to describe the style of a document(HTML)
+mdn topic name google for reference
+
+selector selects ki konse konse html tags ke upar ye style apply hoga
+selector wahi likhte hai jo hamare tag ke andar likhi ho
+for ex. h1,h6,p, etc.
+selector{
+    property:value;
+}
+
+# a convenient default setup that saves time and avoids browser inconsistencies
+* {
+    margin:0%;
+    padding: 0%;
+}
+body , html {
+    width: 100px;
+    height: 100px;
+}
+
+div {
+    width : 100%;
+} 
+this means hey div occupy the 100% space of your parent tag
+
+
+Including style  (inline using style as an atttribute 2) using style as an tag in body tag 3) external file))
+*Inline (Attributes of HTML)
+<h1 style="color : red;">hello world</h1>
+*using style tag (used when we have to give a value to a particular tag) (written in head tag)
+    <style>
+        h1 {
+            color : red;
+        }
+    </style>
+ab jitne bhi h1 tag honge sabka colour red hojayega
+2nd method is to write css in head tag 
+<style>
+    tag {
+
+    }
+    tag {
+
+    }
+</style>
+*using external style sheet (writing css in a separate document & linking it with HTML file) (pro method)
+<link rel="stylesheet" href="style.css">
+whenever we link a css file we write stylesheet as the relation
+inline stlying has more priority than external & using style tag stlying
+
+color property (foreground)
+color : value;
+used to set the color of the foreground (layout = background(jo piche dikhti hai) + foreground(jo aage dikhti hai))
+(ex. text, button, etc. are foreground)
+
+background color property
+used to set the colour of the background
+background-color : value;
+body {
+    background-color : value;
+}
+
+color systems (used when we have to use a color which has no name/ we dont know the name of)
+two systems--> 1)RGB system 2)HEX system
+to find RGB/HEX value of every colour --> google color picker
+
+1)RGB system
+all the colours are the mixture of three colours (red, green and blue) (IN CSS**)
+the range of the colour varies from 0--255
+color : rgb(x,y,z);   (x--> amt. of red; y-->amt. of green; z--> amt. of blue)
+white --> rgb(255,255,255)      
+black --> rgb(0,0,0)
+red --> rgb(255,0,0)
+red --> rgb(0,255,0)
+red --> rgb(0,0,255)
+
+2)HEX system (HEXAdecimal) (hexa(6)+decimal(10)) (a,b,c,d,e,f,1-9) 
+0,1,...9,a,...f
+range 0-15  --> 16 digits
+similar to RGB just min (0 is 00 here) and max (255 is ff) here
+color : #xx,yy,zz;   (xx--> red; yy-->green; zz--> blue)
+white --> #ffffff
+black --> #000000
+red --> #ff0000
+green --> #00ff00
+blue --> #0000ff
+yellow --> #ffff00
+
+Selectors
+universal selector(*)  (used to style an entire term)
+* {
+    prop:value;
+}
+
+element selector(h1,p,etc) (used to style an particular element)
+h1 {
+    prop:value;
+}
+
+ID selector(based on id) (used to style an element having a particular ID)
+#value_of_id {
+    prop:value;
+}
+<tag id="">content</tag>
+same id = same stlying  (giving same id to multiple elements is a bad practice use class selector)
+
+Class selector (used when we have to give more than one but not all elements the same properties)
+.value_of_class {
+    prop:value;
+}
+<tag class="">content</tag>
+the element suffers changes w.r.t the class irrespective of the tag they have
+    #examples
+
+
+multiple selectors can also be styled by ,
+h1,h2,,h3 {
+    prop:value;
+}
+css mai style follows order
+
+TEXT properties
+text-align : left/right/center
+(by default texts written is left aligned (in the same line from the left))
+selector {
+    text-align:value;
+}
+text align property styles itself based on the parent class (styling the parent --> styling the child too)
+for ex.
+<body>
+    <h1>
+        raj singh
+    </h1>
+</body>
+(body tag is the parent tag and h1 is the clild tag) so if the h1 tag is styled to align itself in the center
+then it aligns itself in the centre of the content of the body tag (parent ke hisab se alignment)
+
+TEXT decoration
+text-decoration : underline/overline/linethrough/none
+we can also apply color to our text decoration
+selector {
+    text-align: center;
+    text-decoration:value;
+}
+selector {
+    text-align: center;
+    text-decoration:color value;
+}
+by-default every link has an underline in it in HTML to remove it
+a {
+    text-decoration:none;
+}
+
+font-weight
+font-weight : normal/bold/brighter/lighter
+font weight : 100(lightest)-900(darkest)
+by default headings have a darker font(bold)
+h1 {
+    font-weight: 900;   
+}
+
+font-family / style (to change fonts)
+selector {
+    font-family:value;
+}
+why , is used? if the first font doesnt exist then apply the next, which is followed further.(fallback mechanism)
+there are two types of font families 1)generic font families  2)specific font families
+there are 5 generic font families 1)serif 2)Sans-serif 3)cursive(handwriting like) 4)Fantasy 5)Monospace
+
+UNITS in CSS
+to measure the size of an item in CSS we use pixels(px) as the unit
+two types of units --> 1)absolute unit 2)relative unit
+selector {
+    font-size: valuepx;
+}
+
+line-height (height taken by an individual line)
+selector {
+    line-height: xpx;
+}
+value = normal
+
+text-transform
+text-transform : uppercase/lowercase/capitalize(words ke starting ka har ek letter capital)/none
+capitalize(words ke starting ka har ek letter capital)
+uppercase(every letter in every word gets capitalized)
+lowercase(every letter in every word gets lowercased)
+none (as it is text)
+hr {
+    text-align: center;
+    text-decoration: #00ff00 wavy underline;
+    font-weight: normal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+    text-transform: value;
+}
+styling in the parent tag results in the styling of child tag too
+#outer {
+    font-size: 25px;
+    
+}
+#inner {
+
+}
+for example if here outer tag gets styled inner tag gets styled itself on its own
+
+BOX MODEL IN CSS
+ALL THE ELEMENTS IN HTML ARE VISUALIZED IN THE FORM OF AN BOX
+CONTENT WRITTEN IN HTML CAN BE VISUALIZED IN THE FORM OF AN BOX IN AN CONFINED MANNER
+the text gets aligned as per the height and width of the tag (i.e w.r.t. the box of the element)
+blue wala part--> actual content
+orange wala part --> margin
+height,width- normal
+padding -- distance between the content and the border (extra space between content and the border)
+border -- outerline
+margin -- distance between two boxes
+in inspect width and height are mentioned as width x height
+selector {
+    height : xpx;
+}
+selector {
+    width :xpx;
+}
+border --> used to set an elements border
+border - width (width of the border)
+border-width : xpx;
+border-style :  solid/draffted: solid/dotted/dashed/double border(two line ka border)
+border-color : value;
+span tag doesnt get affected by the height and width properties
+
+#shorthand for border
+border : value_of_width value_of_style value_of_color
+
+border-radius  (used to round the corners of an elements outer border edge)
+border-radius : xpx;
+border-radius : x%;
+to create a circle in CSS 
+create a square (height=width) --> change the border-radius to 50%
+to create a (sleeping)oval in CSS 
+create a rectange (width>height) --> change the border radius to 50%  (2x width, x height)
+to create a (standing)oval in CSS 
+create a rectange (width<height) --> change the border radius to 50%
+
+padding (usually green in colour)
+space between the content and the border of that element itself is called as padding  
+padding-left : xpx;
+padding-right
+padding-top
+padding-bottom
+ 
+padding shorthand
+padding : xpx;
+padding of x px will be done from all the sides (top right bottom left  (clockwise))
+padding : 1px 2px 3px 4px  (top right bottom left (clockwise))
+
+margin --> outer padding --> inner
+
+margin property (orange in colour)
+margin (distance between two borders)
+margin-right : xpx;
+margin-left 
+margin-top
+margin-bottom
+margin shorthand
+margin : xpx;
+margin of x px will be done from all the sides (top right bottom left  (clockwise))
+margin : 1px 2px 3px 4px  (top right bottom left (clockwise))
+margin hamesha parent element ki dikhti hai when we are hovering over child tag
+
+display property
+display: inline/block/inline-block/none
+inline - takes only the space required by the element. (no margin/padding) (ex. span, button ,input, a)
+block - takes full space available in width (ex. div, h1,)
+inline-block - similar to inline but we can set margin & padding
+none - to remove element from document flow 
+whenever blocks are set to display inline then the margin is only applied on the right and left
+margin on the upper and the lower side is cancelled
+likha hua element gayab karne ke liye (delete) karne ke liye we can use display:none;
+
+width if not mentioned then its the width of its parent
+text-align : center; #aligns the text in the center w.r.t the place alloted to that text
+flexbox
+flex items try to take up as little horizontal space as possible
+when you apply it to a parent element all of its direct children become flex items
+and that flex display is applied to the flex items directly
+if written in the body tag then the flex works only on tags mentioned in the body tag
+to make display flex work in a particular div use display flex separatly in that div 
+(in short -- jis tag ki styling mai display flex hoga it will work only on those items who has parent as the
+display flex element)
+what can flexbox do ? 
+display : flex;
+flex-direction : row;
+flex-direction : column;
+align - items : center; #alligns the item to the center w.r.t the height 
+justify - content : center; #alligns the items to the center w.r.t the width
+
+#rotates the element by x deg
+rotate : xdeg;
+
+#to center 
+(written in parent tag)
+(if multiple items are to be positioned at the same spot they come next to each other)
+display : flex
+align-items : center
+justify-content : center
+
+(written in tag which needs to be positioned)  (if multiple items are to be positioned at the same spot
+they come back to back)  (first uske upar second uske upar third which is followed) (therefore first will
+be at the last position)
+position : absolute
+top: 50%
+left: 50%  #this line and the above two lines brings the object the left corner of the object to the center
+transform : translate(-50%, -50%)  #to bring the entire object in the center transform is used
+
+z-index --> used to change positions of objects 
+it tells the browser how to stack overlapping elements on top of each other
+for z-index to work the element must have its position property set to something other than default
+higher the value of z-index the more front will be the object
+The gap property only adds space between flex items. It does not add space around the outside edges of the container.
+
+flex-wrap : value; 
+flex-wrap is a CSS property that tells Flexbox what to do when there isnt enough space in a row / column
+flex-wrap : wrap;   // when there isnt enough space, the remaining items automatically move to the next line
+
+position  : fixed;  use cases --> custom cursor 
+
+an id cant contain spaces
+
+position : fixed; (mostly used for nav bars)
+jo hamme dikhe even if the page is scrolled jiski position fix ho
+whenever a position is fixed then the element next to the element whose position is fixed comes at the top
+fixed → element is removed from normal flow, stays attached to the viewport, and other elements act as if it isn't taking up space. (and they start occupying their space from the fixed element)
+if an element is fixed then the elements which are in it also become fixed
+
+This is a common best practice in modern CSS because width and height become much easier to manage.
+
+vh is a unit which means viewport height  (option to %)
+The viewport is the visible area of your browser window.
+
+x % --> take the x% width of your parent
+x vh ---> take the v% height of the total view port height
+vh is indepent of its parent 
+vw (view port width)

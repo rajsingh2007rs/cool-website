@@ -1,0 +1,34 @@
+body {
+    background-color: black;
+}
+h2 {
+    color :rgb(300,200,100)
+}
+h1 {
+    color : #ff0000
+}
+#rajj {
+    color :blueviolet;
+}
+.my_class {
+    color:magenta;
+    background-color: #ffffff;
+}
+*{
+    color :beige;
+}
+button {
+    color :brown;
+    background-color:chartreuse;
+}
+
+#box {
+    background-color: blue;
+}
+.heading {
+    color:#ff0000;
+}
+button {
+    background-color: green;
+}
+
